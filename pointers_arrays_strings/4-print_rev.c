@@ -1,14 +1,15 @@
 #include "main.h"
+#include "2-strlen.c"
 
 /**
  * print_rev - prints a string in reverse
- * @s: pointer to the string to print
+ * @str: pointer to the string to print
  */
-void print_rev(char *s)
+void print_rev(char *str)
 {
-	int len = _strlen(s);
+	int len = _strlen(str);
 
 	while (len--)
-		_putchar(s[len]);
+		_putchar(str[len]);
 	_putchar('\n');
 }
