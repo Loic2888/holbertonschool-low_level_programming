@@ -5,7 +5,7 @@ int _atoi(char *s)
 	int sign = 1;
 	unsigned int num = 0;
 
-	while (*s == ' ' || *s == '-' || *s == '+' || (*s >= 'A' && *s <= 'Z') || (*s >= 'a' && *s <= 'z'))
+	while (!(*s >= '0' && *s <= '9'))
 	{
 		if (*s == '-')
 		{
