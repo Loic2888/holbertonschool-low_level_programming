@@ -7,16 +7,26 @@
 
 int _sqrt_recursion(int n)
 {
-	int guess = 0;
-
 	if (n < 0)
+	{
 		return (-1);
-	if (n == 0 || n == 1)
+	}
+	else if (n == 0 || n == 1)
+	{
 		return (n);
-	while (guess * guess < n)
-		guess++;
-	if (guess * guess == n)
-		return (guess);
+	}
 	else
-		return (-1);
+	{
+		int i = 1;
+
+		while (i * i <= n)
+		{
+			i++;
+		}
+		if ((i - 1) * (i - 1) == n)
+		{
+			return (i - 1);
+		}
+	}
+	return (-1);
 }
