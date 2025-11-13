@@ -12,7 +12,6 @@ void print_dog(struct dog *d)
 {
 	if (d == NULL)
 	{
-		printf("Dog structure is NULL\n");
 		return;
 	}
 
