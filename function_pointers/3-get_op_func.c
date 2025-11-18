@@ -1,6 +1,4 @@
 #include "3-calc.h"
-#include <stdio.h>
-#include <string.h>
 /**
  * ops - array of struct op
  */
