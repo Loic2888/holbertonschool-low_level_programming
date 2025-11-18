@@ -1,29 +1,28 @@
 #include "3-calc.h"
 /**
- * ops - array of struct op
- */
-op_t ops[] = {
-	{"+", op_add},
-	{"-", op_sub},
-	{"*", op_mul},
-	{"/", op_div},
-	{"%", op_mod},
-	{NULL, NULL}};
-int i;
-/**
  * get_op_func - selects the correct function to perform the operation
  * @s: operator passed as argument
  *
  * Return: pointer to the function that corresponds to the operator
  */
-
 int (*get_op_func(char *s))(int, int)
 {
-	while (ops[i].op != NULL)
+	op_t ops[] = {
+		{"+", op_add},
+		{"-", op_sub},
+		{"*", op_mul},
+		{"/", op_div},
+		{"%", op_mod},
+		{NULL, NULL}};
+
+	int i = 0;
+
+	while (ops[i].op != NULL && ops[i].op[0] != s[0])
 	{
-		if (strcmp(s, ops[i].op) == 0)
-			return (ops[i].f);
 		i++;
+
+		if (ops[i].op == NULL)
+			return (NULL);
 	}
-	return (NULL);
+	return (ops[i].f);
 }
