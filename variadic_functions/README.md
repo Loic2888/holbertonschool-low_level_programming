@@ -1,0 +1,1 @@
+Variadique function.
