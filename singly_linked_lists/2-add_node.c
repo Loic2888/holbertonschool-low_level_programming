@@ -10,6 +10,7 @@
 char *my_strcpy(char *dest, const char *src)
 {
 	char *ptr = dest;
+
 	while (*src != '\0')
 	{
 		*ptr = *src;
@@ -17,7 +18,7 @@ char *my_strcpy(char *dest, const char *src)
 		src++;
 	}
 	*ptr = '\0';
-	return dest;
+	return (dest);
 }
 /**
  * my_strlen - calculates the length of a string
@@ -33,7 +34,7 @@ size_t my_strlen(const char *str)
 	{
 		ptr++;
 	}
-	return ptr - str;
+	return (ptr - str);
 }
 /**
  * add_node - adds a new node at the beginning of a list_t list
