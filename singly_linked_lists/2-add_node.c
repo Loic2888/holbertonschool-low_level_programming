@@ -1,6 +1,24 @@
 #include "lists.h"
 #include <stdlib.h>
-#include <string.h>
+/**
+ * my_strcpy - copies a string from src to dest
+ * @dest: destination string
+ * @src: source string
+ *
+ * Return: pointer to the destination string
+ */
+char *my_strcpy(char *dest, const char *src)
+{
+	char *ptr = dest;
+	while (*src != '\0')
+	{
+		*ptr = *src;
+		ptr++;
+		src++;
+	}
+	*ptr = '\0';
+	return dest;
+}
 /**
  * my_strlen - calculates the length of a string
  * @str: input string
@@ -44,7 +62,7 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 	}
 
-	strcpy(new_node->str, str);
+	my_strcpy(new_node->str, str);
 	new_node->len = len;
 	new_node->next = *head;
 	*head = new_node;
