@@ -2,6 +2,22 @@
 #include <stdlib.h>
 #include <string.h>
 /**
+ * my_strlen - calculates the length of a string
+ * @str: input string
+ *
+ * Return: length of the string
+ */
+size_t my_strlen(const char *str)
+{
+	const char *ptr = str;
+
+	while (*ptr != '\0')
+	{
+		ptr++;
+	}
+	return ptr - str;
+}
+/**
  * add_node - adds a new node at the beginning of a list_t list
  * @head: double pointer to the head of the list
  * @str: string to be added to the new node
@@ -20,7 +36,7 @@ list_t *add_node(list_t **head, const char *str)
 	if (new_node == NULL)
 		return (NULL);
 
-	len = strlen(str);
+	len = my_strlen(str);
 	new_node->str = malloc(len + 1);
 	if (new_node->str == NULL)
 	{
