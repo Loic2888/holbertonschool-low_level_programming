@@ -1,5 +1,20 @@
 #include "lists.h"
 /**
+ * insert_at_head - inserts a node at the beginning of the list
+ * @h: pointer to the head of the list
+ * @new_node: the new node to insert
+ *
+ * Return: address of the new node
+ */
+dlistint_t *insert_at_head(dlistint_t **h, dlistint_t *new_node)
+{
+	new_node->next = *h;
+	if (*h != NULL)
+		(*h)->prev = new_node;
+	*h = new_node;
+	return (new_node);
+}
+/**
  * insert_dnodeint_at_index - inserts a new node at a given position
  * @h: pointer to the head of the list
  * @idx: index where the new node should be added
@@ -23,13 +38,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	new_node->prev = NULL;
 
 	if (idx == 0)
-	{
-		new_node->next = *h;
-		if (*h != NULL)
-			(*h)->prev = new_node;
-		*h = new_node;
-		return (new_node);
-	}
+		return (insert_at_head(h, new_node));
 
 	current = *h;
 	count = 0;
@@ -39,16 +48,15 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		current = current->next;
 		count++;
 	}
-
 	if (current == NULL)
 	{
 		free(new_node);
 		return (NULL);
 	}
-
 	new_node->next = current->next;
 	new_node->prev = current;
 	current->next = new_node;
+
 	if (new_node->next != NULL)
 		new_node->next->prev = new_node;
 
